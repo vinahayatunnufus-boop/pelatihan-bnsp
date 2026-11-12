@@ -4,7 +4,7 @@ import AddMemberForm from './AddMemberForm';
 
 function TeamDirectory() {
   const [members, setMembers] = useState([
-    { id: 1, name: 'Budi Santoso', role: 'Frontend Dev', status: 'Online', stars: 2, avatar: 'https://i.pravatar.cc/150?u=1' },
+    { id: 1, name: 'Budi Santoso', role: 'Frontend Dev', status: 'Online', stars: 2, avatar: 'https://i.pravatar.cc/150?u=4' },
     { id: 2, name: 'Siti Rahma', role: 'UI/UX Designer', status: 'Offline', stars: 5, avatar: 'https://i.pravatar.cc/150?u=2' },
     { id: 3, name: 'Ahmad Fauzi', role: 'Backend Engineer', status: 'Online', stars: 1, avatar: 'https://i.pravatar.cc/150?u=3' }
   ]);
