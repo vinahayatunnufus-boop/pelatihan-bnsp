@@ -1,16 +1,67 @@
-# React + Vite
+# Portal Manajemen & Informasi Tim
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplikasi full-stack React + Express untuk mengelola anggota tim, barang dan kategori, serta menampilkan berita terkini. Backend menyimpan data ke MySQL.
 
-Currently, two official plugins are available:
+## Teknologi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Frontend: React, Vite, Tailwind CSS, dan Zod
+- Backend: Node.js, Express, mysql2, dan Zod
+- Database: MySQL
 
-## React Compiler
+## Persiapan
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Pastikan Node.js dan npm sudah terpasang. Untuk memakai fitur anggota/barang, nyalakan MySQL di Laragon.
 
-## Expanding the ESLint configuration
+Pasang dependency dari folder proyek:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```powershell
+npm install
+npm --prefix server install
+```
+
+Salin konfigurasi contoh dan sesuaikan dengan MySQL lokal:
+
+```powershell
+Copy-Item server\.env.example server\.env
+```
+
+Nilai bawaan pada `server/.env.example` cocok untuk Laragon dengan pengguna `root`, kata sandi kosong, dan port MySQL `3306`. Jangan bagikan atau commit `server/.env`.
+
+## Menjalankan aplikasi
+
+Jalankan sekali untuk membuat database, tabel, dan data contoh:
+
+```powershell
+npm run seed
+```
+
+Lalu buka dua terminal di folder proyek:
+
+```powershell
+npm run server
+```
+
+```powershell
+npm run dev
+```
+
+Buka alamat frontend yang ditampilkan Vite (biasanya `http://localhost:5173`). API berjalan di `http://localhost:3000`; Vite meneruskan permintaan `/api` ke backend.
+
+## Fitur
+
+- Anggota tim: tambah, cari, edit, hapus, ubah status, dan beri bintang.
+- Data barang: tambah, cari, edit, dan hapus barang serta mengelola kategori.
+- Berita terkini: mengambil berita CNN Indonesia dari Berita Indo API.
+- Validasi form di frontend dan backend.
+
+## Perintah lain
+
+| Perintah | Kegunaan |
+| --- | --- |
+| `npm run server:dev` | Menjalankan backend dengan pemantauan perubahan |
+| `npm test` | Menjalankan tes frontend |
+| `npm run test:server` | Menjalankan tes backend |
+| `npm run lint` | Memeriksa kode dengan ESLint |
+| `npm run build` | Membuat build produksi frontend |
+
+Database dan tabel dibuat otomatis oleh backend. Perintah seed aman dijalankan berulang kali dan tidak menimpa data yang sudah ada.

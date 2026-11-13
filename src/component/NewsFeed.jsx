@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import NewsCard from './NewsCard';
-import { mapNewsItems } from './NewsMapper';
+import { mapNewsItems } from './newsMapper';
 
 const NEWS_URL = 'https://berita-indo-api.vercel.app/v1/cnn-news';
 
